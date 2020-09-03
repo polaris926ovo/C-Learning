@@ -69,12 +69,12 @@ void PlayerMove(char board[ROW][COL], int row, int col)
 		int x, y;
 		printf("请玩家输入坐标:>");
 		scanf("%d%d", &x, &y);
-		if (x > 0 && x < 4 && y>0 && y < 4 && board[x - 1][y - 1] == ' ')
+		if (x > 0 && x <= row && y>0 && y <= col && board[x - 1][y - 1] == ' ')
 		{
 			board[x - 1][y - 1] = '*';
 			break;
 		}
-		else if (x > 0 && x < 4 && y>0 && y < 4 && board[x - 1][y - 1] != ' ')
+		else if (x > 0 && x <= row && y>0 && y <= col && board[x - 1][y - 1] != ' ')
 			printf("该处已有棋子，请重新输入\n");
 		else
 			printf("坐标非法，请重新输入\n");
@@ -86,8 +86,8 @@ void ComputerMove(char board[ROW][COL], int row, int col)
 	printf("电脑落子\n");
 	while (1)
 	{
-		int x = rand() % 3;
-		int y = rand() % 3;
+		int x = rand() % row;
+		int y = rand() % col;
 		if (board[x][y] == ' ')
 		{
 			board[x][y] = '#';
