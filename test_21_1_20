@@ -1,0 +1,18 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include <stdio.h>
+
+//汽水1元一瓶，2个空瓶能换一瓶汽水，求20元能喝几瓶汽水
+int main()
+{
+	int x = 0;
+	int sum = 0;
+	scanf("%d",&x);
+	sum = x;
+	for (;x > 1; x = x % 2 + x / 2)
+	{
+		sum += x / 2;
+	}
+	printf("%d\n", sum);
+
+	return 0;
+}
